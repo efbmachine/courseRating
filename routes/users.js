@@ -7,7 +7,7 @@ router.get('/', users.list);
 
 router.get('/:uName',()=>{});
 
-router.post('/login', users.create);
+router.post('/', users.create);
 
 
 module.exports = router;

@@ -6,3 +6,4 @@ var UserSchema = new Schema({
     password: String
 });
 mongoose.model('Users', UserSchema);
+  
