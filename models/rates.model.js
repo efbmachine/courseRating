@@ -1,15 +1,22 @@
 var mongoose = require('mongoose'),
-    Schema = mongoose.Schema;
+    Schema = mongoose.Schema,
+    ObjectId = Schema.ObjectId;
+
     
 var RateSchema = new Schema({
-    code: String,
-    title: String,
-    professor:String,
-    comment:String,
+    course:{
+        type:ObjectId,
+        ref:'Courses'
+    },
     user:{
-        
-    }
+        type: ObjectId,
+        ref:'Users'
+    },
+    rate:{
+        type:Number, min:0, max:5
+    },
+    comment:String 
     
 });
-mongoose.model('Rate', RateSchema);
+mongoose.model('Rates', RateSchema);
   

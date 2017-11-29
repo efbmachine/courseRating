@@ -6,8 +6,17 @@
   
   <body class='container'>
     <% include partials/header %>
+
+    
+    <%include partials/login%>
+    <!-- work only while logged in-->
+    <br/>
+    <br/>
     <h1><%= title %></h1>
     <p>Welcome to <%= title %></p>
+    <form action="/createRate">
+          <input type="submit" value="Write a Post" />
+        </form>
     <% include partials/footer %>
   </body>
 </html>

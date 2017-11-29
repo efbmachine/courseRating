@@ -6,3 +6,8 @@ body {
 a {
   color: #00B7FF;
 }
+
+.courseTitle{
+  text-decoration: underline red;
+  text-align: center;
+}

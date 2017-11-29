@@ -9,11 +9,11 @@ exports.list= function(req, res, next) {
 };
 
 */ 
-require("../models/users.model");
+require('../models/users.model');
 var User = require('mongoose').model('Users');
 
 exports.check = (req,res,next) =>{
-    console.log("The user you're checking is:")
+    console.log("The user you're checking is:");
     console.log(req.body);
     if (User.find()){
         
@@ -32,7 +32,7 @@ exports.create = function(req,res,next){
     });
 };
 exports.list= function(req, res, next) {
-    User.find({}, function(err, users){
+    User.find({unername:''}, function(err, users){
         console.log("Here is a list of the data:"+users);
         if(err) {
             return next(err);
@@ -43,4 +43,44 @@ exports.list= function(req, res, next) {
     });
 };
 
+exports.read = function(req, res) {
+    res.render('',
+    {'title':'User page', 'data':req.user});
+};
+
+exports.userByName = function(req, res, next) {
+    User.findOne({username:req.params.uName}, function(err, user) {
+            if (err) {
+            return next(err);
+            } else {
+                console.log("user from controller:"+user);
+                res.render('user',
+                {'title':'User Page', 'data': user});
+        }
+    });
+};
+
+exports.updatePassword = function(req, res, next) {
+    User.findOne({username:req.params.uName}, function(err, user) {
+            if (err) {
+            return next(err);
+            } else {
+                console.log("user from controller:"+user);
+                res.render('user',
+                {'title':'User Page', 'data': user});
+        }
+    });
+};
+
+exports.userByID = function(req, res, next) {
+    User.findOne({__id:req.params.userId }, function(err, user) {
+            if (err) {
+            return next(err);
+            } else {
+            console.log("user from controller:"+user);
+                res.render('user',
+                {'title':'User Page', 'data': user});
+        }
+    });
+};
 
