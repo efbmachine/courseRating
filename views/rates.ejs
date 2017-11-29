@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <%include partials/head%>
+    
+    <link rel='stylesheet' href='/stylesheets/style.css' />
+  </head>
+  <body class='container'>
+    <%include partials/header%>
+    <h1><%= title %></h1>
+    
+      <div class='container-flex'>
+        <% for (var i = 0; i < data.length; i++) { %>
+            <div class='row' style='border: 1px black solid;'> 
+              <h2 class='courseTitle'><%= data[i].title %>(<%= data[i].code %>)</h2>
+              <h3 class='courseTitle'>by <%= data[i].professor %></h3>
+              <hr>
+              <% for (var j = 0; j < data[i].rates.length; j++) { %>
+                <div class=<%="col-sm-"+12/data[i].rates.length %> >
+                  <strong>Rate:</strong>
+                  <% for (var z =0; z< data[i].rates[j].rate ;z++){ %>
+                    <img src='/images/star.png' style='height: 25%;width:25%;'>
+                  <% }%>
+                    <br/>
+                    <strong>Comment:</strong><%=data[i].rates[j].comment%><br/>
+                </div>
+                <hr class='visible-xs'>
+                
+              <% } %>
+            </div>
+            <br/>
+        <% } %>
+      </div>
+    
+    <%include partials/footer%>
+  </body>
+</html>

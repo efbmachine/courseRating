@@ -1,0 +1,21 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <%include partials/head%>
+    
+    <link rel='stylesheet' href='/stylesheets/style.css' />
+  </head>
+  <body class='container'>
+    <%include partials/header%>
+    <h1><%= title %></h1>
+    <p>Welcome to <%= data.username%>'s page</p>
+    
+    <ul>
+        
+            <li> <%= data.username %> : <%= data.email%> </li>
+        
+    </ul>
+    
+    <%include partials/footer%>
+  </body>
+</html> 

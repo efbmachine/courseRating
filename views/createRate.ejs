@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <%include partials/head%>
+  </head>
+  
+  <body class='container'>
+    <% include partials/header %>
+    <h1><%= title %></h1>
+    <form method="post" action="/rates/">
+      <p>
+        <label>Code:</label>
+        <input type="text" name="code">
+      </p>
+      <p>
+        <label>Title:</label>
+        <input type='text' name="title">
+      </p>
+      <p>
+        <label>professor:</label>
+        <input type="text" name="professor">
+      </p>
+      <p>
+        <label>Rate( /5):</label>
+        <input type="text" name="rate">
+      </p>
+      <p>
+        <label>comment:</label>
+        <input type="text" name="comment">
+      </p>
+      <p>
+        <input type="submit" value="Post">
+      </p>
+    </form>
+    <% include partials/footer %>
+  </body>
+</html>
